@@ -15,7 +15,7 @@ const categories = [
   const categoryList= (req, res) => {
     if (req.query.q != null) {
         const filteredCategorie =categories.filter((category) =>
-          category.synopsis.includes(req.query.q)
+          category.name.includes(req.query.q)
         );
   
   /* Here you code */
