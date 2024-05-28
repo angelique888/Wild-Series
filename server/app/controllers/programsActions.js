@@ -1,6 +1,7 @@
 // Some data to make the trick
+const tables = require("../../database/tables");
 
-const programs = [
+ const programs = [
     {
       id: 1,
       title: "The Good Place",
@@ -22,10 +23,16 @@ const programs = [
       year: 2017,
     },
   ];
-  
+
   // Declare the action
+
+  const browse = async (req, res) => {
+     const programsFromDB = await tables.programs.readAll();
+    
+      res.json(programsFromDB);
+    };
   
-  const browse = (req, res) => {
+/*   const browse = (req, res) => {
     if (req.query.q != null) {
       const filteredPrograms = programs.filter((program) =>
         program.synopsis.includes(req.query.q)
@@ -35,7 +42,7 @@ const programs = [
     } else {
       res.json(programs);
     }
-  };
+  }; */
 
   const read = (req, res) => {
     const parsedId = parseInt(req.params.id, 10);

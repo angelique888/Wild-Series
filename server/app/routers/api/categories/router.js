@@ -8,12 +8,12 @@ const router = express.Router();
 
 /* Here you code */
 
-const { categoryList, selectCategorie  } = require("../../../controllers/categoryActions");
+const { browse, read  } = require("../../../controllers/categoryActions");
 
 // Route to get a list of programs
-router.get("/", categoryList);
+router.get("/", browse);
 
-router.get("/:id", selectCategorie);
+router.get("/:id", read);
 
 /* ************************************************************************* */
 
